@@ -1,15 +1,6 @@
-import React, { useState } from "react";
-import inputValidation from "../utils/helper/input-validation";
 import "./Screen.css"
 
-const Screen = () => {
-  const [ input, setInput ] = useState("");
-
-  const onInputChange = (e) => {
-    const validatedString = inputValidation(e.target.value);
-    setInput(validatedString);
-  }
-
+const Screen = ({ onInputChange, input }) => {
   return (
     <form type="submit">
       <input
