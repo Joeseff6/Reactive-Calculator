@@ -1,7 +1,15 @@
 import Screen from "./components/Screen";
+import InputButton from"./components/InputButton";
 import "./App.css";
 
 function App() {
+  const buttonArray = [
+    "7", "8", "9", "÷",
+    "4", "5", "6", "x",
+    "1", "2", "3", "-",
+    "0", ".", "(-)", "+"
+  ];
+
   return (
     <div className="container-fluid">
       <div className="row mt-5 justify-content-center">
@@ -16,6 +24,11 @@ function App() {
             </div>
             <div className="row justify-content-center mt-2">
               <Screen />
+            </div>
+            <div className="row justify-content-center mt-2">
+              {buttonArray.map(char => {
+                return  <button className="btn input-button" key={char}>{char}</button>
+              })}
             </div>
           </div>
         </div>
