@@ -34,3 +34,8 @@ body {
   width: 50px;
   height: 40px;
 }
+
+.btn.enter-button {
+  background-color: #EAF9FF;
+  margin: 15px 15px 15px 15px;
+}

@@ -30,6 +30,9 @@ function App() {
                 return  <button className="btn input-button" key={char}>{char}</button>
               })}
             </div>
+            <div className="row justify-content-center">
+              <button className="btn enter-button">Calculate</button>
+            </div>
           </div>
         </div>
       </div>
