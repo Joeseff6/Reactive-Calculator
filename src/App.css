@@ -20,3 +20,10 @@ body {
   border-radius: 20px;
   position: absolute;
 }
+
+.calculator-model {
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  font-family: 'Ubuntu', sans-serif;
+  font-style: italic;
+}
