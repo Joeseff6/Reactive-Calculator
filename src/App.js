@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import Screen from "./components/Screen";
-import InputButton from"./components/InputButton";
-import inputValidation from "./utils/helper/input-validation";
+import entryValidation from "./utils/helper/entry-validation";
 
 
 import "./App.css";
 
 function App() {
-  const [ input, setInput ] = useState("");
+  const [ entry, setEntry ] = useState("");
   const [ result, setResult ] = useState("");
 
   const buttonArray = [
@@ -17,18 +16,18 @@ function App() {
     "0", ".", "(-)", "+"
   ];
 
-  const onInputChange = (e) => {
-    const validatedString = inputValidation(e);
-    setInput(validatedString);
+  const onEntryChange = (e) => {
+    const validatedString = entryValidation(e);
+    setEntry(validatedString);
   }
 
-  const onInputButtonClick =(e) => {
+  const onEntryButtonClick =(e) => {
     if (/^[\+-x÷]/.test(e.target.innerText)) {
-      const newInput = input + " " + e.target.innerText + " ";
-      setInput(newInput);
+      const newEntry = entry + " " + e.target.innerText + " ";
+      setEntry(newEntry);
     } else {
-      const newInput = input + e.target.innerText;
-      setInput(newInput);
+      const newEntry = entry + e.target.innerText;
+      setEntry(newEntry);
     }
   }
 
@@ -45,16 +44,16 @@ function App() {
               </div>
             </div>
             <div className="row justify-content-center mt-2">
-              <Screen onInputChange={onInputChange} input={input}/>
+              <Screen onEntryChange={onEntryChange} entry={entry}/>
             </div>
             <div className="row justify-content-center mt-4">
               {buttonArray.map(char => {
-                return  <button className="btn input-button" key={char} onClick={(e) => onInputButtonClick(e)}>{char}</button>
+                return  <button className="btn entry-button" key={char} onClick={(e) => onEntryButtonClick(e)}>{char}</button>
               })}
             </div>
             <div className="row justify-content-center">
               <button className="btn enter-button">Calculate</button>
-              <button className="btn btn-warning clear-entry-button">Clear Entry</button>
+              <button className="btn btn-warning clear-entry-button" onClick={() => setEntry("")}>Clear Entry</button>
               <button className="btn btn-danger clear-all-button">Clear All</button>
             </div>
           </div>

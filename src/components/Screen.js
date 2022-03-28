@@ -1,6 +1,6 @@
 import "./Screen.css"
 
-const Screen = ({ onInputChange, input }) => {
+const Screen = ({ onEntryChange, entry }) => {
   return (
     <form type="submit">
       <textarea id="result" name="result" disabled>abs</textarea>
@@ -9,8 +9,8 @@ const Screen = ({ onInputChange, input }) => {
         type="text"
         id="screen"
         name="screen"
-        value={input}
-        onChange={(e) => onInputChange(e)}
+        value={entry}
+        onChange={(e) => onEntryChange(e)}
       />
     </form>
   );
