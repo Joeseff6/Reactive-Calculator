@@ -6,8 +6,8 @@ import entryValidation from "./utils/helper/entry-validation";
 import "./App.css";
 
 function App() {
-  const [ entry, setEntry ] = useState("123");
-  const [ result, setResult ] = useState("asdf");
+  const [ entry, setEntry ] = useState("");
+  const [ result, setResult ] = useState("");
 
   const buttonArray = [
     "7", "8", "9", "÷",
