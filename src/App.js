@@ -17,14 +17,19 @@ function App() {
     "0", ".", "(-)", "+"
   ];
 
-
   const onInputChange = (e) => {
-    const validatedString = inputValidation(e.target.value);
+    const validatedString = inputValidation(e);
     setInput(validatedString);
   }
 
   const onInputButtonClick =(e) => {
-    console.log(e.target.innerText)
+    if (/^[\+-x÷]/.test(e.target.innerText)) {
+      const newInput = input + " " + e.target.innerText + " ";
+      setInput(newInput);
+    } else {
+      const newInput = input + e.target.innerText;
+      setInput(newInput);
+    }
   }
 
   return (
@@ -42,13 +47,15 @@ function App() {
             <div className="row justify-content-center mt-2">
               <Screen onInputChange={onInputChange} input={input}/>
             </div>
-            <div className="row justify-content-center mt-2">
+            <div className="row justify-content-center mt-4">
               {buttonArray.map(char => {
                 return  <button className="btn input-button" key={char} onClick={(e) => onInputButtonClick(e)}>{char}</button>
               })}
             </div>
             <div className="row justify-content-center">
               <button className="btn enter-button">Calculate</button>
+              <button className="btn btn-warning clear-entry-button">Clear Entry</button>
+              <button className="btn btn-danger clear-all-button">Clear All</button>
             </div>
           </div>
         </div>
