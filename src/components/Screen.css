@@ -8,6 +8,8 @@ textarea {
   height: 2rem;
   background-color: #cceffddb;
   border-radius: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 #screen, textarea {
