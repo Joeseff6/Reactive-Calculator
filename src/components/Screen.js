@@ -1,9 +1,9 @@
 import "./Screen.css"
 
-const Screen = ({ onEntryChange, entry }) => {
+const Screen = ({ onEntryChange, entry, result }) => {
   return (
     <form type="submit">
-      <textarea id="result" name="result" disabled>abs</textarea>
+      <textarea id="result" name="result" value={result}disabled />
       <input
         className="form-control"
         type="text"
