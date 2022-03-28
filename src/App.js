@@ -6,8 +6,8 @@ import entryValidation from "./utils/helper/entry-validation";
 import "./App.css";
 
 function App() {
-  const [ entry, setEntry ] = useState("");
-  const [ result, setResult ] = useState("");
+  const [ entry, setEntry ] = useState("123");
+  const [ result, setResult ] = useState("asdf");
 
   const buttonArray = [
     "7", "8", "9", "÷",
@@ -31,6 +31,11 @@ function App() {
     }
   }
 
+  const onClearAllClick = () => {
+    setEntry("");
+    setResult("");
+  }
+
   return (
     <div className="container-fluid">
       <div className="row mt-5 justify-content-center">
@@ -44,7 +49,7 @@ function App() {
               </div>
             </div>
             <div className="row justify-content-center mt-2">
-              <Screen onEntryChange={onEntryChange} entry={entry}/>
+              <Screen onEntryChange={onEntryChange} entry={entry} result={result}/>
             </div>
             <div className="row justify-content-center mt-4">
               {buttonArray.map(char => {
@@ -54,7 +59,7 @@ function App() {
             <div className="row justify-content-center">
               <button className="btn enter-button">Calculate</button>
               <button className="btn btn-warning clear-entry-button" onClick={() => setEntry("")}>Clear Entry</button>
-              <button className="btn btn-danger clear-all-button">Clear All</button>
+              <button className="btn btn-danger clear-all-button" onClick={onClearAllClick}>Clear All</button>
             </div>
           </div>
         </div>
