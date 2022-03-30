@@ -17,18 +17,23 @@ function App() {
   ];
 
   const onEntryChange = (e) => {
-    const validatedString = entryValidation(e);
-    setEntry(validatedString);
+    console.log(e)
+    if (e.target.localName === "button") {
+      console.log("this is a button");
+    } else {
+      console.log("this is the input");
+    }
+    console.log(e)
   }
 
   const onEntryButtonClick =(e) => {
-    if (/^[\+-x÷]/.test(e.target.innerText)) {
-      const newEntry = entry + " " + e.target.innerText + " ";
-      setEntry(newEntry);
-    } else {
-      const newEntry = entry + e.target.innerText;
-      setEntry(newEntry);
-    }
+    // if (/^[\+-x÷]/.test(e.target.innerText)) {
+    //   const newEntry = entry + " " + e.target.innerText + " ";
+    //   setEntry(newEntry);
+    // } else {
+    //   const newEntry = entry + e.target.innerText;
+    //   setEntry(newEntry);
+    // }
   }
 
   const onClearAllClick = () => {
@@ -53,7 +58,7 @@ function App() {
             </div>
             <div className="row justify-content-center mt-4">
               {buttonArray.map(char => {
-                return  <button className="btn entry-button" key={char} onClick={(e) => onEntryButtonClick(e)}>{char}</button>
+                return  <button className="btn entry-button" key={char} onClick={(e) => onEntryChange(e)}>{char}</button>
               })}
             </div>
             <div className="row justify-content-center">
