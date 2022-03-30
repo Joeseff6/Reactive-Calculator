@@ -19,7 +19,8 @@ function App() {
   const onEntryChange = (e) => {
     console.log(e)
     if (e.target.localName === "button") {
-      console.log("this is a button");
+      const newEntry = entry + e.target.innerText;
+      setEntry(newEntry);
     } else {
       console.log("this is the input");
     }
