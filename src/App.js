@@ -43,7 +43,7 @@ function App() {
       if (newEntry[0] === "0" && newEntry[1] === "0") {
         setEntry("0");
       } else if (newEntry.length > 1 && newEntry[0] === "0" && newEntry[1] !== "0") {
-        setEntry(newEntry.slice(1,newEntry.length));
+        setEntry(newEntry.slice(1,-1));
       } else {
         setEntry(newEntry);
       }
