@@ -18,22 +18,24 @@ function App() {
 
   const onEntryChange = (e) => {
     if (e.target.localName === "button") {
-      if (e.target.innerText === "." && entry.includes(".")) return;
       let newEntry = "";
-      if (e.target.innerText === "(-)" && entry[0] !== "-") {
+      const button = e.target.innerText;
+      if (button === "(-)" && entry[0] !== "-") {
         newEntry = "-" + entry;
-      } else if (e.target.innerText === "(-)" && entry[0] === "-") {
+      } else if (button === "(-)" && entry[0] === "-") {
         newEntry = entry.slice(1,entry.length);
       } else {
-        newEntry = entry + e.target.innerText;
+        newEntry = entry + button;
       }
       if (newEntry === "00") {
         setEntry("0");
       } else {
         setEntry(newEntry);
       }
-    } else {
-      console.log("this is the input");
+    }
+
+    if (e.target.localName === "input") {
+      console.log("this is input")
     }
   }
 
