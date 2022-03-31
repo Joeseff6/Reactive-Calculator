@@ -20,19 +20,24 @@ function App() {
     if (e.target.localName === "button") {
       let newEntry = "";
       const button = e.target.innerText;
+      if (button === "." && entry.includes(".")) return;
       if (button === "(-)" && entry[0] !== "-") {
-        newEntry = "-" + entry;
+        newEntry = entry[0] === "0" ? "0" : "-" + entry;
       } else if (button === "(-)" && entry[0] === "-") {
         newEntry = entry.slice(1,entry.length);
       } else {
         newEntry = entry + button;
       }
-      if (newEntry === "00") {
+      
+      if (newEntry[0] === "0" && newEntry[1] === "0") {
         setEntry("0");
+      } else if (newEntry.length > 1 && newEntry[0] === "0" && newEntry[1] !== "0") {
+        setEntry(newEntry.slice(1,newEntry.length));
       } else {
         setEntry(newEntry);
       }
     }
+
 
     if (e.target.localName === "input") {
       console.log("this is input")
