@@ -18,13 +18,14 @@ function App() {
 
   const onEntryChange = (e) => {
     if (e.target.localName === "button") {
+      if (e.target.innerText === "." && entry.includes(".")) return;
       let newEntry = "";
       if (e.target.innerText === "(-)" && entry[0] !== "-") {
         newEntry = "-" + entry;
       } else if (e.target.innerText === "(-)" && entry[0] === "-") {
         newEntry = entry.slice(1,entry.length);
       } else {
-        newEntry = entry + e.target.innerText
+        newEntry = entry + e.target.innerText;
       }
       if (newEntry === "00") {
         setEntry("0");
