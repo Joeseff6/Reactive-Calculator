@@ -17,14 +17,23 @@ function App() {
   ];
 
   const onEntryChange = (e) => {
-    console.log(e)
     if (e.target.localName === "button") {
-      const newEntry = entry + e.target.innerText;
-      setEntry(newEntry);
+      let newEntry = "";
+      if (e.target.innerText === "(-)" && entry[0] !== "-") {
+        newEntry = "-" + entry;
+      } else if (e.target.innerText === "(-)" && entry[0] === "-") {
+        newEntry = entry.slice(1,entry.length);
+      } else {
+        newEntry = entry + e.target.innerText
+      }
+      if (newEntry === "00") {
+        setEntry("0");
+      } else {
+        setEntry(newEntry);
+      }
     } else {
       console.log("this is the input");
     }
-    console.log(e)
   }
 
   const onEntryButtonClick =(e) => {
@@ -57,7 +66,10 @@ function App() {
             <div className="row justify-content-center mt-2">
               <Screen onEntryChange={onEntryChange} entry={entry} result={result}/>
             </div>
-            <div className="row justify-content-center mt-4">
+            <div className="btn backspace-button mt-2">
+              <i className="fa-solid fa-delete-left"></i>
+            </div>
+            <div className="row justify-content-center mt-2">
               {buttonArray.map(char => {
                 return  <button className="btn entry-button" key={char} onClick={(e) => onEntryChange(e)}>{char}</button>
               })}
