@@ -1,3 +1,14 @@
+const calculate = (string) => {
+  let array = string.split(" ");
+  while (array.length !== 1) {
+      let lowestIndex = findLowestIndex(array);
+      let [firstNumber, operator, secondNumber] = array.splice(lowestIndex - 1, 3)
+      let result = performMath(firstNumber,operator, secondNumber);
+      array.splice(lowestIndex - 1, 0,result);
+  } 
+  return array[0];
+}
+
 const findLowestIndex = (array) => {
   let string = array.join("");
   let regex = null;
