@@ -38,3 +38,5 @@ const performMath = (firstNumber, operator, secondNumber) => {
   }
   return result;
 }
+
+export default calculate;
