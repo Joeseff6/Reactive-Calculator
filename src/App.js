@@ -55,16 +55,6 @@ function App() {
     }
   }
 
-  const onEntryButtonClick =(e) => {
-    // if (/^[\+-x÷]/.test(e.target.innerText)) {
-    //   const newEntry = entry + " " + e.target.innerText + " ";
-    //   setEntry(newEntry);
-    // } else {
-    //   const newEntry = entry + e.target.innerText;
-    //   setEntry(newEntry);
-    // }
-  }
-
   const onClearAllClick = () => {
     setEntry("");
     setResult("");
