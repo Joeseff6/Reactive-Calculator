@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Screen from "./components/Screen";
 import entryValidation from "./utils/helper/entry-validation";
-import calculate from "./utils/helper/calculate"
+import calculate from "./utils/helper/calculate";
 
 
 import "./App.css";
@@ -62,7 +62,15 @@ function App() {
   }
 
   const onCalculateClick = () => {
-
+    let stringToBeCalculated = "";
+    if (entry) {
+      stringToBeCalculated = `${result} ${entry}`;
+    } else {
+      stringToBeCalculated = result.slice(0,-2);
+    }
+    const finalResult = calculate(stringToBeCalculated);
+    setResult(finalResult);
+    setEntry("");
   }
 
   return (
@@ -89,7 +97,7 @@ function App() {
               })}
             </div>
             <div className="row justify-content-center">
-              <button className="btn enter-button">Calculate</button>
+              <button className="btn enter-button" onClick={() => onCalculateClick()}>Calculate</button>
               <button className="btn btn-warning clear-entry-button" onClick={() => setEntry("")}>Clear Entry</button>
               <button className="btn btn-danger clear-all-button" onClick={onClearAllClick}>Clear All</button>
             </div>
