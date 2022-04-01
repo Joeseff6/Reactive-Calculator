@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Screen from "./components/Screen";
 import entryValidation from "./utils/helper/entry-validation";
+import calculate from "./utils/helper/calculate"
 
 
 import "./App.css";
@@ -58,6 +59,10 @@ function App() {
   const onClearAllClick = () => {
     setEntry("");
     setResult("");
+  }
+
+  const onCalculateClick = () => {
+
   }
 
   return (
