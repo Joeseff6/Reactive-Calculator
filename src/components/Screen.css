@@ -5,14 +5,17 @@
 
 textarea {
   resize: none;
-  height: 2rem;
+  height: 40px;
   background-color: #cceffddb;
   border-radius: 5px;
   padding-left: 12px;
   padding-right: 12px;
+  overflow: hidden;
 }
 
 #screen, textarea {
   width: 275px;
   box-shadow: 0px 2px 5px #63a7c2 inset;
+  font-family: 'VT323', monospace;
+  font-size: x-large;
 }
