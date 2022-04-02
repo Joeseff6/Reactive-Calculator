@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Screen from "./components/Screen";
 import entryValidation from "./utils/helper/entry-validation";
 import calculate from "./utils/helper/calculate";
+import buttonEntryValidation from "./utils/helper/button-entry-validation";
 
 
 import "./App.css";
@@ -20,34 +21,34 @@ function App() {
   const onEntryChange = (e) => {
     if (e.target.localName === "button") {
       const button = e.target.innerText;
+      buttonEntryValidation(button,entry);
+      // if (/[\+x÷-]/g.test(button) && entry) {
+      //   if (result) {
+      //     setResult(`${result} ${entry} ${button}`);
+      //   } else {
+      //     setResult(`${entry} ${button}`);
+      //   }
+      //   setEntry("");
+      //   return;
+      // }
 
-      if (/[\+x÷-]/g.test(button) && entry) {
-        if (result) {
-          setResult(`${result} ${entry} ${button}`);
-        } else {
-          setResult(`${entry} ${button}`);
-        }
-        setEntry("");
-        return;
-      }
+      // let newEntry = "";
+      // if (button === "." && entry.includes(".")) return;
+      // if (button === "neg" && !/-/.test(entry)) {
+      //   newEntry = entry === "0" ? "0" : `(-${entry})`;
+      // } else if (button === "neg" && /-/.test(entry)) {
+      //   newEntry = entry.replace(/[()-]/g,"");
+      // } else {
+      //   newEntry = entry + button;
+      // }
 
-      let newEntry = "";
-      if (button === "." && entry.includes(".")) return;
-      if (button === "neg" && !/-/.test(entry)) {
-        newEntry = entry === "0" ? "0" : `(-${entry})`;
-      } else if (button === "neg" && /-/.test(entry)) {
-        newEntry = entry.replace(/[()-]/g,"");
-      } else {
-        newEntry = entry + button;
-      }
-
-      if (newEntry[0] === "0" && newEntry[1] === "0") {
-        setEntry("0");
-      } else if (newEntry.length > 1 && newEntry[0] === "0" && newEntry[1] !== "0") {
-        setEntry(newEntry.slice(1,-1));
-      } else {
-        setEntry(newEntry);
-      }
+      // if (newEntry[0] === "0" && newEntry[1] === "0") {
+      //   setEntry("0");
+      // } else if (newEntry.length > 1 && newEntry[0] === "0" && newEntry[1] !== "0") {
+      //   setEntry(newEntry.slice(1,-1));
+      // } else {
+      //   setEntry(newEntry);
+      // }
     }
 
 
@@ -76,7 +77,6 @@ function App() {
       setResult("Err");
       setEntry("");
     }
-
   }
 
   return (
