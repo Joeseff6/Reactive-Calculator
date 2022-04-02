@@ -62,15 +62,21 @@ function App() {
   }
 
   const onCalculateClick = () => {
-    let stringToBeCalculated = "";
-    if (entry) {
-      stringToBeCalculated = `${result} ${entry}`;
-    } else {
-      stringToBeCalculated = result.slice(0,-2);
+    try {
+      let stringToBeCalculated = "";
+      if (entry) {
+        stringToBeCalculated = `${result} ${entry}`;
+      } else {
+        stringToBeCalculated = result.slice(0,-2);
+      }
+      const finalResult = calculate(stringToBeCalculated);
+      setResult(finalResult);
+      setEntry("");
+    } catch(err) {
+      setResult("Err");
+      setEntry("");
     }
-    const finalResult = calculate(stringToBeCalculated);
-    setResult(finalResult);
-    setEntry("");
+
   }
 
   return (
