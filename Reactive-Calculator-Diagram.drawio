@@ -1,1 +1,40 @@
-<mxfile host="app.diagrams.net" modified="2022-03-24T01:51:36.042Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.82 Safari/537.36" version="16.6.1" etag="6FkPK-exLuXyqMicfqEn" type="github"><diagram id="TZoMnfLU2BDx9-k30hga">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-04-02T19:49:28.020Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36 OPR/84.0.4316.52" etag="WrdulZxBts7lb24IwNsB" version="17.2.4" type="github">
+  <diagram id="TZoMnfLU2BDx9-k30hga" name="Page-1">
+    <mxGraphModel dx="1381" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-2" value="Entry Validation (button)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="325" y="40" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-3" target="1ex6nhGH8Mem6hA5X4y0-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-3" target="1ex6nhGH8Mem6hA5X4y0-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-3" target="1ex6nhGH8Mem6hA5X4y0-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-3" target="1ex6nhGH8Mem6hA5X4y0-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-3" value="Checks before setting entry" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="20" y="230" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-8" value="Check if entry is 0 and if button is 0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="250" y="210" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-15" value="Check if button is &quot;.&quot; and &quot;.&quot; is already in entry" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="250" y="100" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-26" value="When making number negative, check if entry exists &amp;amp;&amp;amp; is entry 0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="250" y="350" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-27" value="Check if entry is 0 and button is number other than 0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="250" y="280" width="230" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
