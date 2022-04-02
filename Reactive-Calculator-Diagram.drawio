@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-02T19:49:28.020Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36 OPR/84.0.4316.52" etag="WrdulZxBts7lb24IwNsB" version="17.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-02T20:00:04.644Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36 OPR/84.0.4316.52" etag="hcVjo0_MXHXGBEEnxKUZ" version="17.2.4" type="github">
   <diagram id="TZoMnfLU2BDx9-k30hga" name="Page-1">
     <mxGraphModel dx="1381" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -22,17 +22,71 @@
         <mxCell id="1ex6nhGH8Mem6hA5X4y0-3" value="Checks before setting entry" style="rounded=0;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="20" y="230" width="120" height="50" as="geometry" />
         </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-8" target="1ex6nhGH8Mem6hA5X4y0-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="1ex6nhGH8Mem6hA5X4y0-8" value="Check if entry is 0 and if button is 0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="250" y="210" width="230" height="60" as="geometry" />
+          <mxGeometry x="200" y="200" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-15" target="1ex6nhGH8Mem6hA5X4y0-17">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="1ex6nhGH8Mem6hA5X4y0-15" value="Check if button is &quot;.&quot; and &quot;.&quot; is already in entry" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="250" y="100" width="230" height="60" as="geometry" />
+          <mxGeometry x="200" y="120" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-17" value="Do nothing and return" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="490" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-19" value="Do nothing and return" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="490" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-21" value="Change entry to number" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="490" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-24" target="1ex6nhGH8Mem6hA5X4y0-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-24" value="entry &amp;amp;&amp;amp; entry !== 0" style="rhombus;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="470" y="350" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-26" target="1ex6nhGH8Mem6hA5X4y0-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-26" target="1ex6nhGH8Mem6hA5X4y0-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-26" target="1ex6nhGH8Mem6hA5X4y0-40">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="1ex6nhGH8Mem6hA5X4y0-26" value="When making number negative, check if entry exists &amp;amp;&amp;amp; is entry 0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="250" y="350" width="230" height="60" as="geometry" />
+          <mxGeometry x="200" y="370" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-27" target="1ex6nhGH8Mem6hA5X4y0-21">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="1ex6nhGH8Mem6hA5X4y0-27" value="Check if entry is 0 and button is number other than 0" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="250" y="280" width="230" height="60" as="geometry" />
+          <mxGeometry x="200" y="280" width="230" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-33" target="1ex6nhGH8Mem6hA5X4y0-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-33" value="entry &amp;amp;&amp;amp; entry === 0" style="rhombus;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="470" y="460" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-35" value="Change entry to &quot;-${entry}&quot;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="590" y="370" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-38" value="Do nothing and return" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="600" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=14;" edge="1" parent="1" source="1ex6nhGH8Mem6hA5X4y0-40" target="1ex6nhGH8Mem6hA5X4y0-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-40" value="!entry" style="rhombus;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="470" y="570" width="90" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="1ex6nhGH8Mem6hA5X4y0-41" value="Do nothing and return" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="600" y="590" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
