@@ -3,9 +3,11 @@ import Screen from "./components/Screen";
 import entryValidation from "./utils/helper/entry-validation";
 import calculate from "./utils/helper/calculate";
 import buttonEntryValidation from "./utils/helper/button-entry-validation";
+import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 
 
 import "./App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function App() {
   const [ entry, setEntry ] = useState("");
@@ -21,11 +23,10 @@ function App() {
   const onEntryChange = (e) => {
     if (e.target.localName === "button") {
       const button = e.target.innerText;
-      const [newEntry, newResult] = buttonEntryValidation(button,entry, result);
+      const [newEntry, newResult] = buttonEntryValidation(button, entry, result);
       setEntry(newEntry);
       setResult(newResult);
     }
-
 
     if (e.target.localName === "input") {
       console.log("this is input")
@@ -69,8 +70,10 @@ function App() {
             <div className="row justify-content-center mt-2">
               <Screen onEntryChange={onEntryChange} entry={entry} result={result}/>
             </div>
-            <div className="btn backspace-button mt-2">
-              <i className="fa-solid fa-delete-left"></i>
+            <div className="row justify-content-center">
+              <button className="btn backspace-button mt-3">
+                <FontAwesomeIcon icon={faDeleteLeft} />
+              </button>
             </div>
             <div className="row justify-content-center mt-2">
               {buttonArray.map(char => {
