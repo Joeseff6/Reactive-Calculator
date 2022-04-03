@@ -1,7 +1,7 @@
 const buttonEntryValidation = (button, entry, result) => {
   console.log([button, entry, result]);
   let newEntry = "";
-  let newResult = "";
+  let newResult = result ? result : "";
   if ((button === "." && entry.includes("."))
     || (entry === "0" && button === "0")
     || (button === "neg" && entry === "0")
@@ -23,6 +23,13 @@ const buttonEntryValidation = (button, entry, result) => {
     newEntry = entry.replace(/[()-]/g,"");
   }
   if (/[()]/.test(entry) && /[0-9]/.test(button)) newEntry = entry.slice(0,-1) + button + ")";
+  if (/[\+÷x-]/.test(button) && entry && !result) {
+    newResult = `${entry} ${button}`;
+  } else if (/[\+÷x-]/.test(button) && entry && result) {
+    newResult = `${result} ${entry} ${button}`;
+  } else if (/[\+÷x-]/.test(button) && !entry && result) {
+    newResult = `${result.slice(0,-2)} ${button}`;
+  }
 
   return [newEntry, newResult];
 }
