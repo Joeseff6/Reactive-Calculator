@@ -13,7 +13,7 @@ const buttonEntryValidation = (button, entry, result) => {
     || (button === "." && !entry)
     ) newEntry = "0.";
   if (button === "neg" && entry !== "0" && !/-/.test(entry)) {
-    newEntry = `-(${entry})`;
+    newEntry = `(-${entry})`;
   } else if (button === "neg" && entry !== "0" && /-/.test(entry)) {
     newEntry = entry.replace(/[()-]/g,"");
   }
