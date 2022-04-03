@@ -43,7 +43,7 @@ function App() {
     setResult("");
   }
 
-  const onCalculateClick = () => {
+  const onCalculate = () => {
     try {
       let stringToBeCalculated = "";
       if (entry) {
@@ -81,7 +81,7 @@ function App() {
               </div>
             </div>
             <div className="row justify-content-center mt-2">
-              <Screen onEntryChange={onEntryChange} entry={entry} result={result}/>
+              <Screen onEntryChange={onEntryChange} onCalculate={onCalculate} entry={entry} result={result}/>
             </div>
             <div className="row justify-content-center">
               <button className="btn backspace-button mt-3" onClick={() => onBackspaceClick()}>
@@ -94,7 +94,7 @@ function App() {
               })}
             </div>
             <div className="row justify-content-center">
-              <button className="btn enter-button" onClick={() => onCalculateClick()}>Calculate</button>
+              <button className="btn enter-button" onClick={() => onCalculate()}>Calculate</button>
               <button className="btn btn-warning clear-entry-button" onClick={() => setEntry("")}>Clear Entry</button>
               <button className="btn btn-danger clear-all-button" onClick={onClearAllClick}>Clear All</button>
             </div>
