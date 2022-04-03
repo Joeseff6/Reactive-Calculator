@@ -9,6 +9,9 @@ const buttonEntryValidation = (button, entry, result) => {
     || (/[\+÷x-]/.test(button) && !entry && !result)
   ) return;
   if (/[0-9]/.test(button)) newEntry = entry + button;
+  if ((button === "." && entry === "0")
+    || (button === "." && !entry)
+    ) newEntry = "0.";
 
   return [newEntry, newResult];
 }
