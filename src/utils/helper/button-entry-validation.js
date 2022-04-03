@@ -22,6 +22,7 @@ const buttonEntryValidation = (button, entry, result) => {
   } else if (button === "neg" && entry !== "0" && /-/.test(entry)) {
     newEntry = entry.replace(/[()-]/g,"");
   }
+  if (/[()]/.test(entry) && /[0-9]/.test(button)) newEntry = entry.slice(0,-1) + button + ")";
 
   return [newEntry, newResult];
 }
