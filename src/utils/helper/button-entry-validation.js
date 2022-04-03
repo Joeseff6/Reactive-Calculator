@@ -9,9 +9,14 @@ const buttonEntryValidation = (button, entry, result) => {
     || (/[\+÷x-]/.test(button) && !entry && !result)
   ) return;
   if (/[0-9]/.test(button)) newEntry = entry + button;
+  if (/[1-9]/.test(button) && entry === "0") newEntry = button;
   if ((button === "." && entry === "0")
     || (button === "." && !entry)
-    ) newEntry = "0.";
+    ) {
+      newEntry = "0.";
+    } else if (button === "." && entry !== "0") {
+      newEntry = entry + button;
+    }
   if (button === "neg" && entry !== "0" && !/-/.test(entry)) {
     newEntry = `(-${entry})`;
   } else if (button === "neg" && entry !== "0" && /-/.test(entry)) {
