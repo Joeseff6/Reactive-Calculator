@@ -40,3 +40,8 @@ body {
   margin: 15px 5px 15px 5px;
   font-weight: bold;
 }
+
+.btn.backspace-button {
+  border-radius: 35px;
+  background-color: #EAF9FF;
+}
