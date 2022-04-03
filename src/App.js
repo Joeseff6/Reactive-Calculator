@@ -26,6 +26,10 @@ function App() {
       [newEntry, newResult] = entryValidation(button, entry, result);
     }
     if (e.target.localName === "input") {
+      if (e.nativeEvent.inputType === "deleteContentBackward") {
+        setEntry(entry.slice(0,-1));
+        return;
+      }
       let key = "";
       if (!/[^0-9\+x÷\.-]/.test(e.nativeEvent.data)) {
         key = e.nativeEvent.data;
