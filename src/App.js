@@ -55,6 +55,15 @@ function App() {
     }
   }
 
+  const onBackspaceClick = () => {
+    console.log(entry);
+    if (/[()]/.test(entry)) {
+      setEntry(entry.slice(0,-2) + ")");
+    } else {
+      setEntry(entry.slice(0,-1));
+    }
+  }
+
   return (
     <div className="container-fluid">
       <div className="row mt-5 justify-content-center">
@@ -71,7 +80,7 @@ function App() {
               <Screen onEntryChange={onEntryChange} entry={entry} result={result}/>
             </div>
             <div className="row justify-content-center">
-              <button className="btn backspace-button mt-3">
+              <button className="btn backspace-button mt-3" onClick={() => onBackspaceClick()}>
                 <FontAwesomeIcon icon={faDeleteLeft} />
               </button>
             </div>
