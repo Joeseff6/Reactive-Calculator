@@ -35,6 +35,8 @@ const performMath = (firstNumber, operator, secondNumber) => {
     case "-":
       result = Number(firstNumber) - Number(secondNumber);
       break;
+    default:
+      result = "Err";
   }
   return result;
 }
