@@ -21,7 +21,9 @@ function App() {
   const onEntryChange = (e) => {
     if (e.target.localName === "button") {
       const button = e.target.innerText;
-      buttonEntryValidation(button,entry);
+      const [newEntry, newResult] = buttonEntryValidation(button,entry, result);
+      setEntry(newEntry);
+      setResult(newResult);
       // if (/[\+x÷-]/g.test(button) && entry) {
       //   if (result) {
       //     setResult(`${result} ${entry} ${button}`);
