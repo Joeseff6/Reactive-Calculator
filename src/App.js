@@ -24,33 +24,6 @@ function App() {
       const [newEntry, newResult] = buttonEntryValidation(button,entry, result);
       setEntry(newEntry);
       setResult(newResult);
-      // if (/[\+x÷-]/g.test(button) && entry) {
-      //   if (result) {
-      //     setResult(`${result} ${entry} ${button}`);
-      //   } else {
-      //     setResult(`${entry} ${button}`);
-      //   }
-      //   setEntry("");
-      //   return;
-      // }
-
-      // let newEntry = "";
-      // if (button === "." && entry.includes(".")) return;
-      // if (button === "neg" && !/-/.test(entry)) {
-      //   newEntry = entry === "0" ? "0" : `(-${entry})`;
-      // } else if (button === "neg" && /-/.test(entry)) {
-      //   newEntry = entry.replace(/[()-]/g,"");
-      // } else {
-      //   newEntry = entry + button;
-      // }
-
-      // if (newEntry[0] === "0" && newEntry[1] === "0") {
-      //   setEntry("0");
-      // } else if (newEntry.length > 1 && newEntry[0] === "0" && newEntry[1] !== "0") {
-      //   setEntry(newEntry.slice(1,-1));
-      // } else {
-      //   setEntry(newEntry);
-      // }
     }
 
 
