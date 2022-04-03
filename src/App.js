@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Screen from "./components/Screen";
-import entryValidation from "./utils/helper/entry-validation";
 import calculate from "./utils/helper/calculate";
-import buttonEntryValidation from "./utils/helper/button-entry-validation";
+import entryValidation from "./utils/helper/entry-validation";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 
 
@@ -21,16 +20,22 @@ function App() {
   ];
 
   const onEntryChange = (e) => {
+    let newEntry = "", newResult = "";
     if (e.target.localName === "button") {
       const button = e.target.innerText;
-      const [newEntry, newResult] = buttonEntryValidation(button, entry, result);
-      setEntry(newEntry);
-      setResult(newResult);
+      [newEntry, newResult] = entryValidation(button, entry, result);
     }
-
     if (e.target.localName === "input") {
-      console.log("this is input")
+      let key = "";
+      if (!/[^0-9\+x÷\.-]/.test(e.nativeEvent.data)) {
+        key = e.nativeEvent.data;
+      } else {
+        return;
+      }
+      [newEntry, newResult] = entryValidation(key, entry, result);
     }
+    setEntry(newEntry)
+    setResult(newResult)
   }
 
   const onClearAllClick = () => {
@@ -56,7 +61,6 @@ function App() {
   }
 
   const onBackspaceClick = () => {
-    console.log(entry);
     if (/[()]/.test(entry)) {
       setEntry(entry.slice(0,-2) + ")");
     } else {
