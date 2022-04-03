@@ -1,8 +1,13 @@
 import "./Screen.css"
 
-const Screen = ({ onEntryChange, entry, result }) => {
+const Screen = ({ onEntryChange, onCalculate, entry, result }) => {
+  const onFormSubmit = (e) => {
+    e.preventDefault()
+    onCalculate();
+  }
+
   return (
-    <form type="submit">
+    <form type="submit" onSubmit={(e) => onFormSubmit(e)}>
       <textarea id="result" name="result" value={result}disabled />
       <input
         className="form-control"
