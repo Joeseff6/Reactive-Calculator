@@ -6,8 +6,10 @@ const buttonEntryValidation = (button, entry, result) => {
     || (entry === "0" && button === "0")
     || (button === "neg" && entry === "0")
     || (button === "neg" && !entry)
-    || (/[\+÷x-]/g.test(button) && !entry && !result)
+    || (/[\+÷x-]/.test(button) && !entry && !result)
   ) return;
+  
+  return [newEntry, newResult];
 }
 
 export default buttonEntryValidation;
