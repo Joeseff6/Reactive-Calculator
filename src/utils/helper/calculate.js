@@ -17,7 +17,7 @@ const findLowestIndex = (array) => {
   } else if (array.includes("+") || array.includes("-")) {
     regex = /[+-]/;
   }
-  return array.indexOf(string.slice(0,string.length).match(regex)[0]);
+  return array.indexOf(string.slice(1,string.length).match(regex)[0]);
 }
 
 const performMath = (firstNumber, operator, secondNumber) => {
