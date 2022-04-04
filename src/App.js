@@ -31,7 +31,7 @@ function App() {
         return;
       }
       let key = "";
-      if (!/[^0-9\+x÷\.-]/.test(e.nativeEvent.data)) {
+      if (!/[^0-9+x÷.-]/.test(e.nativeEvent.data)) {
         key = e.nativeEvent.data;
       } else {
         return;
@@ -56,7 +56,7 @@ function App() {
         stringToBeCalculated = result.slice(0,-2);
       }
       const finalResult = calculate(stringToBeCalculated);
-      setResult(finalResult);
+      setResult(finalResult + " ".repeat(2));
       setEntry("");
     } catch(err) {
       setResult("Err");
