@@ -59,6 +59,7 @@ function App() {
       setResult(finalResult + " ".repeat(2));
       setEntry("");
     } catch(err) {
+      console.log(err)
       setResult("Err");
       setEntry("");
     }
