@@ -56,7 +56,7 @@ function App() {
         stringToBeCalculated = result.slice(0,-2);
       }
       const finalResult = calculate(stringToBeCalculated);
-      setResult(finalResult + " ".repeat(2));
+      setResult(finalResult.toFixed(2) + " ".repeat(2));
       setEntry("");
     } catch(err) {
       console.log(err)
