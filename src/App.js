@@ -3,17 +3,16 @@ import Screen from "./components/Screen";
 import calculate from "./utils/helper/calculate";
 import entryValidation from "./utils/helper/entry-validation";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
-
-
-import "./App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./App.css";
+
 
 function App() {
   const [ entry, setEntry ] = useState("");
   const [ result, setResult ] = useState("");
 
   const buttonArray = [
-    "7", "8", "9", "÷",
+    "7", "8", "9", "/",
     "4", "5", "6", "*",
     "1", "2", "3", "-",
     "0", ".", "neg", "+"
@@ -31,7 +30,7 @@ function App() {
         return;
       }
       let key = "";
-      if (!/[^0-9+*÷.-]/.test(e.nativeEvent.data)) {
+      if (!/[^0-9+*/.-]/.test(e.nativeEvent.data)) {
         key = e.nativeEvent.data;
       } else {
         return;
