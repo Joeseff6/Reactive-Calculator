@@ -14,7 +14,7 @@ function App() {
 
   const buttonArray = [
     "7", "8", "9", "÷",
-    "4", "5", "6", "x",
+    "4", "5", "6", "*",
     "1", "2", "3", "-",
     "0", ".", "neg", "+"
   ];
@@ -31,7 +31,7 @@ function App() {
         return;
       }
       let key = "";
-      if (!/[^0-9+x÷.-]/.test(e.nativeEvent.data)) {
+      if (!/[^0-9+*÷.-]/.test(e.nativeEvent.data)) {
         key = e.nativeEvent.data;
       } else {
         return;
