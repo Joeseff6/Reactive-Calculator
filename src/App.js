@@ -37,8 +37,9 @@ function App() {
       }
       [newEntry, newResult] = entryValidation(key, entry, result);
     }
-    setEntry(newEntry)
-    setResult(newResult)
+    if (!newEntry && !newResult) return;
+    setEntry(newEntry);
+    setResult(newResult);
   }
 
   const onClearAllClick = () => {
