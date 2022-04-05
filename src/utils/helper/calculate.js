@@ -12,8 +12,8 @@ const calculate = (string) => {
 const findLowestIndex = (array) => {
   let string = array.join("").replace(/[()]/g, "");
   let regex = null;
-  if (array.includes("x") || array.includes("÷")) {
-    regex = /[x÷]/;
+  if (array.includes("*") || array.includes("/")) {
+    regex = /[*/]/;
   } else if (array.includes("+") || array.includes("-")) {
     regex = /[+-]/;
   }
@@ -25,10 +25,10 @@ const performMath = (firstNumber, operator, secondNumber) => {
   let formattedFirstNumber = typeof(firstNumber) === "string" ? Number(firstNumber.replace(/[()]/g, "")) : firstNumber;
   let formattedSecondNumber = typeof(secondNumber) === "string" ? Number(secondNumber.replace(/[()]/g, "")) : secondNumber;
   switch (operator) {
-    case "x":
+    case "*":
       result = formattedFirstNumber * formattedSecondNumber;
       break;
-    case "÷":
+    case "/":
       result = formattedFirstNumber / formattedSecondNumber;
       break;
     case "+":
