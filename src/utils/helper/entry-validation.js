@@ -6,7 +6,7 @@ const entryValidation = (input, entry, result) => {
     || (input === "neg" && entry === "0")
     || (input === "neg" && !entry)
     || (/[+/*-]/.test(input) && !entry && !result)
-  ) return;
+  ) return [];
   if (/[0-9]/.test(input)) newEntry = entry + input;
   if (/[1-9]/.test(input) && entry === "0") newEntry = input;
   if ((input === "." && entry === "0")
