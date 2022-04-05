@@ -10,6 +10,7 @@ import "./App.css";
 function App() {
   const [ entry, setEntry ] = useState("");
   const [ result, setResult ] = useState("");
+  const [ ans, setAns ] = useState(null);
 
   const buttonArray = [
     "7", "8", "9", "/",
@@ -22,7 +23,7 @@ function App() {
     let newEntry = "", newResult = "";
     if (e.target.localName === "button") {
       const button = e.target.innerText;
-      [newEntry, newResult] = entryValidation(button, entry, result);
+      [newEntry, newResult] = entryValidation(button, entry, result, ans);
     }
     if (e.target.localName === "input") {
       if (e.nativeEvent.inputType === "deleteContentBackward") {
@@ -45,6 +46,7 @@ function App() {
   const onClearAllClick = () => {
     setEntry("");
     setResult("");
+    setAns(null);
   }
 
   const onCalculate = () => {
@@ -57,6 +59,7 @@ function App() {
       }
       const finalResult = calculate(stringToBeCalculated);
       /\./.test(finalResult) ? setResult(finalResult.toFixed(2) + " ".repeat(2)) : setResult(finalResult + " ".repeat(2));
+      /\./.test(finalResult) ? setAns(finalResult.toFixed(2) + " ".repeat(2)) : setAns(finalResult + " ".repeat(2));
       setEntry("");
     } catch(err) {
       console.log(err)
