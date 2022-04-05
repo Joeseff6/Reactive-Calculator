@@ -5,7 +5,7 @@ const entryValidation = (input, entry, result) => {
     || (entry === "0" && input === "0")
     || (input === "neg" && entry === "0")
     || (input === "neg" && !entry)
-    || (/[+÷*-]/.test(input) && !entry && !result)
+    || (/[+/*-]/.test(input) && !entry && !result)
   ) return;
   if (/[0-9]/.test(input)) newEntry = entry + input;
   if (/[1-9]/.test(input) && entry === "0") newEntry = input;
@@ -22,11 +22,11 @@ const entryValidation = (input, entry, result) => {
     newEntry = entry.replace(/[()-]/g,"");
   }
   if (/[()]/.test(entry) && /[0-9]/.test(input)) newEntry = entry.slice(0,-1) + input + ")";
-  if (/[+÷*-]/.test(input) && entry && !result) {
+  if (/[+/*-]/.test(input) && entry && !result) {
     newResult = `${entry} ${input}`;
-  } else if (/[+÷*-]/.test(input) && entry && result) {
+  } else if (/[+/*-]/.test(input) && entry && result) {
     newResult = `${result} ${entry} ${input}`;
-  } else if (/[+÷*-]/.test(input) && !entry && result) {
+  } else if (/[+/*-]/.test(input) && !entry && result) {
     newResult = result.toString().slice(0,-1) + input;
   }
 
