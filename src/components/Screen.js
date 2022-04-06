@@ -10,7 +10,7 @@ const Screen = ({ onEntryChange, onCalculate, entry, result, ans }) => {
     <form type="submit" onSubmit={(e) => onFormSubmit(e)}>
       <div className="mb-2 col" id="result">
           <span>
-          Ans = {ans ? ans : 0}
+          Ans = {ans}
           </span>
           <span>
           {result ? result : "Time to calculate!"}
