@@ -12,6 +12,13 @@ function App() {
   const [ result, setResult ] = useState("");
   const [ ans, setAns ] = useState(null);
 
+  const calculatorSize = {
+    vertical: {
+      width: "400px",
+      height: "575px",
+    }
+  }
+
   const buttonArray = [
     "7", "8", "9", "/",
     "4", "5", "6", "*",
@@ -79,7 +86,7 @@ function App() {
   return (
     <div className="container-fluid">
       <div className="row mt-5 justify-content-center">
-        <div className="main-background">
+        <div className="main-background" style={calculatorSize.vertical}>
           <div className="secondary-background">
             <div className="row">
               <div className="col">
