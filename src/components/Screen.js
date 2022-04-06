@@ -13,7 +13,7 @@ const Screen = ({ onEntryChange, onCalculate, entry, result, ans }) => {
           Ans = {ans}
           </span>
           <span>
-          {result ? result : "Time to calculate!"}
+          {result}
           </span> 
       </div>
       <input
