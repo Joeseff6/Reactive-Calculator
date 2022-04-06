@@ -30,7 +30,7 @@ function App() {
     let newEntry = "", newResult = "";
     if (e.target.localName === "button") {
       const button = e.target.innerText;
-      [newEntry, newResult] = entryValidation(button, entry, result);
+      [newEntry, newResult] = entryValidation(button, entry, result, ans);
     }
     if (e.target.localName === "input") {
       if (e.nativeEvent.inputType === "deleteContentBackward") {
@@ -43,7 +43,7 @@ function App() {
       } else {
         return;
       }
-      [newEntry, newResult] = entryValidation(key, entry, result);
+      [newEntry, newResult] = entryValidation(key, entry, result, ans);
     }
     if (!newEntry && !newResult) return;
     setEntry(newEntry);
