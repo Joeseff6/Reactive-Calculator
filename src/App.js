@@ -53,7 +53,7 @@ function App() {
   const onClearAllClick = () => {
     setEntry("");
     setResult("");
-    setAns(0);
+    setAns("0");
   }
 
   const onCalculate = () => {
@@ -67,7 +67,7 @@ function App() {
       const finalResult = calculate(stringToBeCalculated);
       setEntry("");
       setResult("");
-      /\./.test(finalResult) ? setAns(finalResult.toFixed(2)) : setAns(finalResult);
+      /\./.test(finalResult) ? setAns(finalResult.toFixed(2)) : setAns(finalResult.toString());
     } catch(err) {
       console.log(err)
       setResult("Err");
