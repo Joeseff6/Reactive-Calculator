@@ -1,4 +1,4 @@
-const entryValidation = (input, entry, result) => {
+const entryValidation = (input, entry, result, ans) => {
   let newEntry = "";
   let newResult = result ? result : "";
   if ((input === "." && entry.includes("."))
@@ -27,7 +27,7 @@ const entryValidation = (input, entry, result) => {
   } else if (/[+/*-]/.test(input) && entry && result) {
     newResult = `${result} ${entry} ${input}`;
   } else if (/[+/*-]/.test(input) && !entry && result) {
-    newResult = result.toString().slice(0,-1) + input;
+    newResult = `${result.toString().slice(0,-1)} + ${input}`;
   }
 
   return [newEntry, newResult];
