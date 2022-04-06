@@ -10,7 +10,7 @@ import "./App.css";
 function App() {
   const [ entry, setEntry ] = useState("");
   const [ result, setResult ] = useState("");
-  const [ ans, setAns ] = useState(null);
+  const [ ans, setAns ] = useState(0);
 
   const calculatorSize = {
     vertical: {
@@ -53,7 +53,7 @@ function App() {
   const onClearAllClick = () => {
     setEntry("");
     setResult("");
-    setAns(null);
+    setAns(0);
   }
 
   const onCalculate = () => {
@@ -102,7 +102,7 @@ function App() {
               <button className="btn backspace-button mt-3 mx-3" onClick={() => onBackspaceClick()}>
                 <FontAwesomeIcon icon={faDeleteLeft} />
               </button>
-              <button className="btn ans-button mt-3 mx-3">
+              <button className="btn ans-button mt-3 mx-3" onClick={() => setEntry(ans)}>
                 Ans
               </button>
             </div>
