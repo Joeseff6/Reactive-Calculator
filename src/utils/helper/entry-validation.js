@@ -1,11 +1,11 @@
-const entryValidation = (input, entry, result) => {
+const entryValidation = (input, entry, result, ans) => {
   let newEntry = "";
   let newResult = result ? result : "";
   if ((input === "." && entry.includes("."))
     || (entry === "0" && input === "0")
     || (input === "neg" && entry === "0")
     || (input === "neg" && !entry)
-    || (/[+/*-]/.test(input) && !entry && !result)
+    || (/[+/*-]/.test(input) && !entry && !result && !ans)
   ) return [];
   if (/[0-9]/.test(input)) newEntry = entry + input;
   if (/[1-9]/.test(input) && entry === "0") newEntry = input;
@@ -28,8 +28,9 @@ const entryValidation = (input, entry, result) => {
     newResult = `${result} ${entry} ${input}`;
   } else if (/[+/*-]/.test(input) && !entry && result) {
     newResult = `${result.toString().slice(0,-1)}${input}`;
+  } else if (/[+/*-]/.test(input) && !entry && !result && ans) {
+    newResult = `${ans} ${input}`;
   }
-
   return [newEntry, newResult];
 }
 
