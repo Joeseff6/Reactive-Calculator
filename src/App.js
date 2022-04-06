@@ -66,7 +66,7 @@ function App() {
       }
       const finalResult = calculate(stringToBeCalculated);
       /\./.test(finalResult) ? setResult(finalResult.toFixed(2) + " ".repeat(2)) : setResult(finalResult + " ".repeat(2));
-      /\./.test(finalResult) ? setAns(finalResult.toFixed(2) + " ".repeat(2)) : setAns(finalResult + " ".repeat(2));
+      /\./.test(finalResult) ? setAns(finalResult.toFixed(2)) : setAns(finalResult);
       setEntry("");
     } catch(err) {
       console.log(err)
@@ -96,7 +96,7 @@ function App() {
               </div>
             </div>
             <div className="row justify-content-center mt-2">
-              <Screen onEntryChange={onEntryChange} onCalculate={onCalculate} entry={entry} result={result}/>
+              <Screen onEntryChange={onEntryChange} onCalculate={onCalculate} entry={entry} result={result} ans={ans}/>
             </div>
             <div className="row justify-content-center">
               <button className="btn backspace-button mt-3" onClick={() => onBackspaceClick()}>
