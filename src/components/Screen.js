@@ -1,14 +1,21 @@
-import "./Screen.css"
+import "./Screen.css";
 
-const Screen = ({ onEntryChange, onCalculate, entry, result }) => {
+const Screen = ({ onEntryChange, onCalculate, entry, result, ans }) => {
   const onFormSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     onCalculate();
-  }
+  };
 
   return (
     <form type="submit" onSubmit={(e) => onFormSubmit(e)}>
-      <textarea id="result" name="result" value={result}disabled />
+      <div className="mb-2 col" id="result">
+          <span>
+          Ans = {ans ? ans : 0}
+          </span>
+          <span>
+          {result ? result : "Time to calculate!"}
+          </span> 
+      </div>
       <input
         className="form-control"
         type="text"
