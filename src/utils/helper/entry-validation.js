@@ -27,7 +27,7 @@ const entryValidation = (input, entry, result, ans) => {
   } else if (/[+/*-]/.test(input) && entry && result) {
     newResult = `${result} ${entry} ${input}`;
   } else if (/[+/*-]/.test(input) && !entry && result) {
-    newResult = `${result.toString().slice(0,-1)} + ${input}`;
+    newResult = `${result.toString().slice(0,-1)}${input}`;
   }
 
   return [newEntry, newResult];
