@@ -15,7 +15,7 @@ function App() {
   const calculatorSize = {
     vertical: {
       width: "400px",
-      height: "575px",
+      height: "600px",
     }
   }
 
