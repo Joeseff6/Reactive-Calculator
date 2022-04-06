@@ -39,7 +39,8 @@ body {
   font-weight: bold;
 }
 
-.btn.backspace-button {
+.btn.backspace-button, .ans-button {
   border-radius: 35px;
   background-color: #EAF9FF;
+  font-weight: bold;
 }
