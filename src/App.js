@@ -99,8 +99,11 @@ function App() {
               <Screen onEntryChange={onEntryChange} onCalculate={onCalculate} entry={entry} result={result} ans={ans}/>
             </div>
             <div className="row justify-content-center">
-              <button className="btn backspace-button mt-3" onClick={() => onBackspaceClick()}>
+              <button className="btn backspace-button mt-3 mx-3" onClick={() => onBackspaceClick()}>
                 <FontAwesomeIcon icon={faDeleteLeft} />
+              </button>
+              <button className="btn ans-button mt-3 mx-3">
+                Ans
               </button>
             </div>
             <div className="row justify-content-center mt-2">
