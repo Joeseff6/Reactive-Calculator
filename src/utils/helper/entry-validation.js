@@ -1,4 +1,4 @@
-const entryValidation = (input, entry, result, ans) => {
+const entryValidation = (input, entry, result) => {
   let newEntry = "";
   let newResult = result ? result : "";
   if ((input === "." && entry.includes("."))
