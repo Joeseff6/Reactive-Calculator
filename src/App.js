@@ -59,7 +59,11 @@ function App() {
   const onCalculate = () => {
     try {
       let stringToBeCalculated = "";
-      if (entry) {
+      if (entry && !result) {
+        setAns(entry);
+        setEntry("");
+        return;
+      } else if(entry) {
         stringToBeCalculated = `${result} ${entry}`;
       } else {
         stringToBeCalculated = result.slice(0,-2);
