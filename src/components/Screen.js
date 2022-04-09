@@ -4,7 +4,7 @@ import "./Screen.css";
 const Screen = ({ onEntryChange, onCalculate, entry, result, ans }) => {
   useEffect(() => {
     document.getElementById("screen").focus();
-  }, []);
+  }, [entry,result]);
   
   const onFormSubmit = (e) => {
     e.preventDefault();
