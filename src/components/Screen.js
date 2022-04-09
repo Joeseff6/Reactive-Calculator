@@ -1,6 +1,11 @@
+import React, { useEffect } from "react";
 import "./Screen.css";
 
 const Screen = ({ onEntryChange, onCalculate, entry, result, ans }) => {
+  useEffect(() => {
+    document.getElementById("screen").focus();
+  }, []);
+  
   const onFormSubmit = (e) => {
     e.preventDefault();
     onCalculate();
