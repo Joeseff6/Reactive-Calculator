@@ -31,7 +31,7 @@ const entryValidation = (input, entry, result, ans) => {
   } else if (/[+/*-]/.test(input) && !entry && !result && ans) {
     newResult = `${ans} ${input}`;
   }
-  return [newEntry, newResult];
+  return [newEntry.replace(/,/g, ""), newResult.replace(/,/g, "")];
 }
 
 export default entryValidation;
