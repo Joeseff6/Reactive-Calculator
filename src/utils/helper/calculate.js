@@ -1,5 +1,5 @@
 const calculate = (string) => {
-  let array = string.replace(/,/g, "").split(" ");
+  let array = string.split(" ");
   while (array.length !== 1) {
       let lowestIndex = findLowestIndex(array);
       let [firstNumber, operator, secondNumber] = array.splice(lowestIndex - 1, 3)
