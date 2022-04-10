@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   const [entry, setEntry] = useState("");
-  const [result, setResult] = useState("");
+  const [expression, setExpression] = useState("");
   const [ans, setAns] = useState("0");
 
   const calculatorSize = {
@@ -39,10 +39,10 @@ function App() {
 
   const onEntryChange = (e) => {
     let newEntry = "",
-      newResult = "";
+      newExpression = "";
     if (e.target.localName === "button") {
       const button = e.target.innerText;
-      [newEntry, newResult] = entryValidation(button, entry, result, ans);
+      [newEntry, newExpression] = entryValidation(button, entry, expression, ans);
     }
     if (e.target.localName === "input") {
       if (e.nativeEvent.inputType === "deleteContentBackward") {
@@ -55,40 +55,40 @@ function App() {
       } else {
         return;
       }
-      [newEntry, newResult] = entryValidation(key, entry, result, ans);
+      [newEntry, newExpression] = entryValidation(key, entry, expression, ans);
     }
-    if (!newEntry && !newResult) return;
+    if (!newEntry && !newExpression) return;
     setEntry(newEntry);
-    setResult(newResult);
+    setExpression(newExpression);
   };
 
   const onClearAllClick = () => {
     setEntry("");
-    setResult("");
+    setExpression("");
     setAns("0");
   };
 
   const onCalculate = () => {
     try {
       let stringToBeCalculated = "";
-      if (entry && !result) {
+      if (entry && !expression) {
         setAns(entry);
         setEntry("");
         return;
       } else if (entry) {
-        stringToBeCalculated = `${result} ${entry}`;
+        stringToBeCalculated = `${expression} ${entry}`;
       } else {
-        stringToBeCalculated = result.slice(0, -2);
+        stringToBeCalculated = expression.slice(0, -2);
       }
-      const finalResult = calculate(stringToBeCalculated);
+      const finalExpression = calculate(stringToBeCalculated);
       setEntry("");
-      setResult("");
-      /\./.test(finalResult)
-        ? setAns(finalResult.toFixed(2))
-        : setAns(finalResult.toString());
+      setExpression("");
+      /\./.test(finalExpression)
+        ? setAns(finalExpression.toFixed(2))
+        : setAns(finalExpression.toString());
     } catch (err) {
       console.log(err);
-      setResult("Err");
+      setExpression("Err");
       setEntry("");
     }
   };
@@ -123,7 +123,7 @@ function App() {
                 onEntryChange={onEntryChange}
                 onCalculate={onCalculate}
                 entry={entry}
-                result={result}
+                expression={expression}
                 ans={ans}
               />
             </div>

@@ -3,23 +3,23 @@ import PropTypes from "prop-types";
 import insertCommas from "../utils/helper/insert-commas";
 import "./Screen.css";
 
-const Screen = ({result, ans }) => {
+const Screen = ({expression, ans }) => {
   useEffect(() => {
     document.getElementById("screen").focus();
-  }, [result]);
+  }, [expression]);
 
-  console.log(result)
+  console.log(expression)
 
   return (
     <div className="mb-2" id="screen">
       <span>Ans = {insertCommas(ans)}</span>
-      <span>{result.split(" ").map(string => insertCommas(string)).join(" ")}</span>
+      <span>{expression.split(" ").map(string => insertCommas(string)).join(" ")}</span>
     </div>
   );
 };
 
 Screen.propTypes = {
-  result: PropTypes.string,
+  expression: PropTypes.string,
   ans: PropTypes.string,
 }
 

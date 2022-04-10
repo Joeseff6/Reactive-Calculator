@@ -1,11 +1,11 @@
-const entryValidation = (input, entry, result, ans) => {
+const entryValidation = (input, entry, expression, ans) => {
   let newEntry = "";
-  let newResult = result ? result : "";
+  let newExpression = expression ? expression : "";
   if ((input === "." && entry.includes("."))
     || (entry === "0" && input === "0")
     || (input === "neg" && entry === "0")
     || (input === "neg" && !entry)
-    || (/[+/*-]/.test(input) && !entry && !result && !ans)
+    || (/[+/*-]/.test(input) && !entry && !expression && !ans)
   ) return [];
   if (/[0-9]/.test(input)) newEntry = entry + input;
   if (/[1-9]/.test(input) && entry === "0") newEntry = input;
@@ -22,16 +22,16 @@ const entryValidation = (input, entry, result, ans) => {
     newEntry = entry.replace(/[()-]/g,"");
   }
   if (/[()]/.test(entry) && /[0-9]/.test(input)) newEntry = entry.slice(0,-1) + input + ")";
-  if (/[+/*-]/.test(input) && entry && !result) {
-    newResult = `${entry} ${input}`;
-  } else if (/[+/*-]/.test(input) && entry && result) {
-    newResult = `${result} ${entry} ${input}`;
-  } else if (/[+/*-]/.test(input) && !entry && result) {
-    newResult = `${result.toString().slice(0,-1)}${input}`;
-  } else if (/[+/*-]/.test(input) && !entry && !result && ans) {
-    newResult = `${ans} ${input}`;
+  if (/[+/*-]/.test(input) && entry && !expression) {
+    newExpression = `${entry} ${input}`;
+  } else if (/[+/*-]/.test(input) && entry && expression) {
+    newExpression = `${expression} ${entry} ${input}`;
+  } else if (/[+/*-]/.test(input) && !entry && expression) {
+    newExpression = `${expression.toString().slice(0,-1)}${input}`;
+  } else if (/[+/*-]/.test(input) && !entry && !expression && ans) {
+    newExpression = `${ans} ${input}`;
   }
-  return [newEntry.replace(/,/g, ""), newResult.replace(/,/g, "")];
+  return [newEntry, newExpression];
 }
 
 export default entryValidation;
