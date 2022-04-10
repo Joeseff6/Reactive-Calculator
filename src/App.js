@@ -4,13 +4,14 @@ import calculate from "./utils/helper/calculate";
 import entryValidation from "./utils/helper/entry-validation";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import insertCommas from "./utils/helper/insert-commas";
 import "./App.css";
 
 
 function App() {
   const [ entry, setEntry ] = useState("");
   const [ result, setResult ] = useState("");
-  const [ ans, setAns ] = useState(0);
+  const [ ans, setAns ] = useState("0");
 
   const calculatorSize = {
     vertical: {
@@ -46,7 +47,7 @@ function App() {
       [newEntry, newResult] = entryValidation(key, entry, result, ans);
     }
     if (!newEntry && !newResult) return;
-    setEntry(newEntry);
+    setEntry(insertCommas(newEntry));
     setResult(newResult);
   }
 
