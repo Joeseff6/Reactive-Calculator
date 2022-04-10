@@ -4,7 +4,6 @@ import calculate from "./utils/helper/calculate";
 import entryValidation from "./utils/helper/entry-validation";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import insertCommas from "./utils/helper/insert-commas";
 import "./App.css";
 
 function App() {
@@ -59,7 +58,7 @@ function App() {
       [newEntry, newResult] = entryValidation(key, entry, result, ans);
     }
     if (!newEntry && !newResult) return;
-    setEntry(insertCommas(newEntry));
+    setEntry(newEntry);
     setResult(newResult);
   };
 
@@ -102,7 +101,6 @@ function App() {
     }
   };
 
- 
   const onFormSubmit = (e) => {
     e.preventDefault();
     onCalculate();
