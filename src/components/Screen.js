@@ -8,8 +8,6 @@ const Screen = ({expression, ans }) => {
     document.getElementById("screen").focus();
   }, [expression]);
 
-  console.log(expression)
-
   return (
     <div className="mb-2" id="screen">
       <span>Ans = {insertCommas(ans)}</span>
