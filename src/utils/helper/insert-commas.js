@@ -1,7 +1,7 @@
 const insertCommas = (string) => {
   if (string.length < 4) return string;
   let stringCopy = string;
-  if (string[0] === "-") stringCopy = stringCopy.slice(1,stringCopy.length);
+  if (/[()-]/g.test(string)) stringCopy = stringCopy.replace(/[()-]/g, "");
   let reversedString = stringCopy.split("").reverse().join("");
   let counter = 0;
   let stringWithCommas = "";
@@ -14,7 +14,14 @@ const insertCommas = (string) => {
       stringWithCommas += reversedString[i];
     }
   }
-  return string[0] === "-" ? "-" + stringWithCommas.split("").reverse().join("") : stringWithCommas.split("").reverse().join("");
+  stringWithCommas = stringWithCommas.split("").reverse().join("");
+  if (/[()]/g.test(string)) {
+    return `(-${stringWithCommas})`;
+  } else if (/-/.test(string)) {
+    return `-${stringWithCommas}`;
+  } else {
+    return stringWithCommas;
+  }
 }
 
 export default insertCommas;
