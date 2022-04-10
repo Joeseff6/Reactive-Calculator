@@ -8,12 +8,12 @@ const Screen = ({result, ans }) => {
     document.getElementById("screen").focus();
   }, [result]);
 
-  console.log(typeof(result))
+  console.log(result)
 
   return (
     <div className="mb-2" id="screen">
       <span>Ans = {insertCommas(ans)}</span>
-      <span>{result}</span>
+      <span>{result.split(" ").map(string => insertCommas(string)).join(" ")}</span>
     </div>
   );
 };
