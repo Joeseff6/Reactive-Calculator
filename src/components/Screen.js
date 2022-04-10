@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import insertCommas from "../utils/helper/insert-commas";
 import "./Screen.css";
 
 const Screen = ({ onEntryChange, onCalculate, entry, result, ans }) => {
@@ -15,7 +16,7 @@ const Screen = ({ onEntryChange, onCalculate, entry, result, ans }) => {
     <form type="submit" onSubmit={(e) => onFormSubmit(e)}>
       <div className="mb-2 col" id="result">
           <span>
-          Ans = {ans}
+          Ans = {insertCommas(ans)}
           </span>
           <span>
           {result}
