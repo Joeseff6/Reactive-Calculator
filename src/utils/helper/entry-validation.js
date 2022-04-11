@@ -21,7 +21,7 @@ const entryValidation = (input, entry, expression, ans) => {
   } else if (input === "neg" && entry !== "0" && /-/.test(entry)) {
     newEntry = entry.replace(/[()-]/g,"");
   }
-  if (/[()]/.test(entry) && /[0-9]/.test(input)) newEntry = entry.slice(0,-1) + input + ")";
+  if (/[()]/.test(entry) && /[0-9.]/.test(input)) newEntry = entry.slice(0,-1) + input + ")";
   if (/[+/*-]/.test(input) && entry && !expression) {
     newExpression = `${entry} ${input}`;
   } else if (/[+/*-]/.test(input) && entry && expression) {
