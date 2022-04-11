@@ -73,7 +73,13 @@ function App() {
     try {
       let stringToBeCalculated = "";
       if (entry && !expression) {
-        setAns(/\./.test(entry) ? entry.toFixed(2) : entry);
+        let newAns = "";
+        if (/[()]/.test(entry)) {
+          newAns = `(-${Number(entry).toFixed(2)})`;
+        } else {
+          newAns = Number(entry).toFixed(2);
+        }
+        setAns(newAns);
         setEntry("");
         return;
       } else if (entry) {
