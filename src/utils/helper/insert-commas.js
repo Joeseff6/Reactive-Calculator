@@ -4,7 +4,7 @@ const insertCommas = (string) => {
   let decimal = "";
   if (/\./.test(string)) {
     integer = string.match(/\d+(?=\.)/)[0];
-    decimal = string.match(/\.\d+/)[0];
+    decimal = string.match(/\.\d*/)[0];
   }
   let reversedInteger = integer.split("").reverse().join("");
   let counter = 0;
