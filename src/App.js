@@ -75,7 +75,7 @@ function App() {
       if (entry && !expression) {
         let newAns = "";
         if (/[()]/.test(entry)) {
-          newAns = `(-${Number(entry.replace(/[()-]/g, "")).toFixed(2)})`;
+          newAns = `-${Number(entry.replace(/[()-]/g, "")).toFixed(2)}`;
         } else {
           newAns = Number(entry).toFixed(2);
         }
