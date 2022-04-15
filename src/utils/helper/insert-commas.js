@@ -1,26 +1,26 @@
 const insertCommas = (string) => {
   if (string.length <= 4 && /\./.test(string)) return string;
-  let stringCopy = string;
-  if (/[()-]/g.test(string)) stringCopy = stringCopy.replace(/[()-]/g, "");
-  let reversedString = stringCopy.split("").reverse().join("");
+  let integer = string, decimal = "";
+  if (/[()-]/g.test(integer)) integer = integer.replace(/[()-]/g, "");
+  let reversedInteger = integer.split("").reverse().join("");
   let counter = 0;
-  let stringWithCommas = "";
-  for (let i = 0; i < reversedString.length; i++) {
+  let integerWithCommas = "";
+  for (let i = 0; i < reversedInteger.length; i++) {
     counter++;
-    if ((counter === 3) && ( i !== reversedString.length - 1)) {
-      stringWithCommas += reversedString[i] + ",";
+    if ((counter === 3) && ( i !== reversedInteger.length - 1)) {
+      integerWithCommas += reversedInteger[i] + ",";
       counter = 0;
     } else {
-      stringWithCommas += reversedString[i];
+      integerWithCommas += reversedInteger[i];
     }
   }
-  stringWithCommas = stringWithCommas.split("").reverse().join("");
+  integerWithCommas = integerWithCommas.split("").reverse().join("");
   if (/[()]/g.test(string)) {
-    return `(-${stringWithCommas})`;
+    return `(-${integerWithCommas})`;
   } else if (/-/.test(string)) {
-    return `-${stringWithCommas}`;
+    return `-${integerWithCommas}`;
   } else {
-    return stringWithCommas;
+    return integerWithCommas;
   }
 }
 
