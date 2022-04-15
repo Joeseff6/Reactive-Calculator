@@ -73,7 +73,7 @@ function App() {
     try {
       let stringToBeCalculated = "";
       if (entry && !expression) {
-        setAns(entry);
+        setAns(entry.replace(/[()]/g, ""));
         setEntry("");
         return;
       } else if (entry) {
@@ -81,6 +81,7 @@ function App() {
       } else {
         stringToBeCalculated = expression.slice(0, -2);
       }
+
       const finalExpression = calculate(stringToBeCalculated);
       setEntry("");
       setExpression("");
