@@ -1,5 +1,5 @@
 const insertCommas = (string) => {
-  if (string.length < 4) return string;
+  if (string.length <= 4 && /\./.test(string)) return string;
   let stringCopy = string;
   if (/[()-]/g.test(string)) stringCopy = stringCopy.replace(/[()-]/g, "");
   let reversedString = stringCopy.split("").reverse().join("");
