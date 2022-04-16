@@ -1,11 +1,10 @@
 const updateValues = (input, entry, expression, ans) => {
-  if ((input === "." && input.includes("."))
+  if ((input === "." && entry.includes("."))
     || (entry === "0" && input === "0")
     || (input === "neg" && entry === "0")
     || (input === "neg" && !entry)
     || (/[+/*-]/.test(input) && !entry && !expression && !ans)
   ) return [];
-  
   let updatedEntry = newEntry(input, entry);
   let updatedExpression = newExpression(input, entry, expression, ans);
 
