@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Screen from "./components/Screen";
 import calculate from "./utils/helper/calculate";
 import updateValues from "./utils/helper/update-values";
@@ -11,6 +11,10 @@ function App() {
   const [entry, setEntry] = useState("");
   const [expression, setExpression] = useState("");
   const [ans, setAns] = useState("0");
+
+  useEffect(() => {
+    document.getElementById("entry").focus();
+  }, [entry, expression, ans]);
 
   const calculatorSize = {
     vertical: {
