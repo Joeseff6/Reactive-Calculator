@@ -57,7 +57,7 @@ function App() {
     let validatedInput = entryValidation(input, entry, expression, ans)
     if (!validatedInput) return;
     let updatedEntry = newEntry(validatedInput, entry)
-    let updatedExpression = newExpression(validatedInput, expression)
+    let updatedExpression = newExpression(validatedInput, updatedEntry, expression, ans)
     setEntry(updatedEntry);
     setExpression(updatedExpression);
   };
