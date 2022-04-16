@@ -48,7 +48,7 @@ function App() {
     if (e.target.localName === "input") {
       if (e.nativeEvent.inputType === "deleteContentBackward") {
         let updatedEntry = "";
-        updatedEntry = /[()-]/.test(entry) ? entry.slice(0,-2) + ")" : entry.slice(0,-2) + ")";
+        updatedEntry = /[()-]/.test(entry) ? entry.slice(0,-2) + ")" : entry.slice(0,-1);
         if (updatedEntry === "(-)") {
           setEntry("");
         } else {
