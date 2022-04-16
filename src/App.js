@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import Screen from "./components/Screen";
 import calculate from "./utils/helper/calculate";
-import entryValidation from "./utils/helper/entry-validation";
-import newEntry from "./utils/helper/new-entry";
-import newExpression from "./utils/helper/new-expression";
+import updateValues from "./utils/helper/update-values";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import insertCommas from "./utils/helper/insert-commas";
@@ -48,16 +46,13 @@ function App() {
         setEntry(entry.slice(0, -1));
         return;
       }
-      if (!/[^0-9+*/.-]/.test(e.nativeEvent.data)) {
+      if (/[0-9+*/.-]/.test(e.nativeEvent.data)) {
         input = e.nativeEvent.data;
       } else {
         return;
       }
     }
-    let validatedInput = entryValidation(input, entry, expression, ans)
-    if (!validatedInput) return;
-    let updatedEntry = newEntry(validatedInput, entry)
-    let updatedExpression = newExpression(validatedInput, updatedEntry, expression, ans)
+    const [updatedEntry, updatedExpression] = updateValues(input, entry, expression, ans)
     setEntry(updatedEntry);
     setExpression(updatedExpression);
   };
