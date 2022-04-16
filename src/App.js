@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Screen from "./components/Screen";
 import calculate from "./utils/helper/calculate";
 import entryValidation from "./utils/helper/entry-validation";
+import newEntry from "./utils/helper/new-entry";
+import newExpression from "./utils/helper/new-expression";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import insertCommas from "./utils/helper/insert-commas";
@@ -39,28 +41,25 @@ function App() {
   ];
 
   const onEntryChange = (e) => {
-    let newEntry = "",
-      newExpression = "";
-    if (e.target.localName === "button") {
-      const button = e.target.innerText;
-      [newEntry, newExpression] = entryValidation(button, entry, expression, ans);
-    }
+    let input = "";
+    if (e.target.localName === "button") input = e.target.innerText;
     if (e.target.localName === "input") {
       if (e.nativeEvent.inputType === "deleteContentBackward") {
         setEntry(entry.slice(0, -1));
         return;
       }
-      let key = "";
       if (!/[^0-9+*/.-]/.test(e.nativeEvent.data)) {
-        key = e.nativeEvent.data;
+        input = e.nativeEvent.data;
       } else {
         return;
       }
-      [newEntry, newExpression] = entryValidation(key, entry, expression, ans);
     }
-    if (!newEntry && !newExpression) return;
-    setEntry(newEntry);
-    setExpression(newExpression);
+    let validatedInput = entryValidation(input, entry, expression, ans)
+    if (!validatedInput) return;
+    let updatedEntry = newEntry(validatedInput, entry)
+    let updatedExpression = newExpression(validatedInput, expression)
+    setEntry(updatedEntry);
+    setExpression(updatedExpression);
   };
 
   const onClearAllClick = () => {
@@ -135,7 +134,7 @@ function App() {
                 type="text"
                 id="entry"
                 name="entry"
-                value={insertCommas(entry)}
+                value={entry}
                 onChange={(e) => onEntryChange(e)}
               />
             </form>
