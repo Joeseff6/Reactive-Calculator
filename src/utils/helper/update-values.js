@@ -28,25 +28,21 @@ const newEntry = (input, prevEntry) => {
     updatedEntry = prevEntry.replace(/[()-]/g,"");
   }
   if (/[()]/.test(prevEntry) && /[0-9]/.test(input)) updatedEntry = prevEntry.slice(0,-1) + input + ")";
-  console.log(updatedEntry)
   return updatedEntry;
 }
 
-const newExpression = (input, updatedEntry, prevExpression, currentAns) => {
-  console.log([input, updatedEntry, prevExpression, currentAns])
+const newExpression = (input, entry, prevExpression, ans) => {
   let updatedExpression = prevExpression ? prevExpression : "";
-  if (/[+/*-]/.test(input) && updatedEntry && !prevExpression) {
-    console.log("pk")
-    updatedExpression = `${updatedEntry} ${input}`;
-  } else if (/[+/*-]/.test(input) && updatedEntry && prevExpression) {
-    updatedExpression = `${prevExpression} ${updatedEntry} ${input}`;
-  } else if (/[+/*-]/.test(input) && !updatedEntry && prevExpression) {
+  if (/[+/*-]/.test(input) && entry && !prevExpression) {
+    updatedExpression = `${entry} ${input}`;
+  } else if (/[+/*-]/.test(input) && entry && prevExpression) {
+    updatedExpression = `${prevExpression} ${entry} ${input}`;
+  } else if (/[+/*-]/.test(input) && !entry && prevExpression) {
     updatedExpression = `${prevExpression.toString().slice(0,-1)}${input}`;
   } 
-  else if (/[+/*-]/.test(input) && !updatedEntry && !prevExpression && currentAns) {
-    updatedExpression = `${currentAns} ${input}`;
+  else if (/[+/*-]/.test(input) && !entry && !prevExpression && ans) {
+    updatedExpression = `${ans} ${input}`;
   }
-  console.log(updatedExpression)
   return updatedExpression;
 }
 
