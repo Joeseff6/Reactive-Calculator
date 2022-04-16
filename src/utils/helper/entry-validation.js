@@ -4,7 +4,7 @@ const entryValidation = (input, currentEntry, currentExpression, currentAns) => 
     || (input === "neg" && currentEntry === "0")
     || (input === "neg" && !currentEntry)
     || (/[+/*-]/.test(input) && !currentEntry && !currentExpression && !currentAns)
-  ) return [];
+  ) return "";
   return input;
 }
 
