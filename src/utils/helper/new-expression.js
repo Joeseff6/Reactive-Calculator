@@ -1,15 +1,16 @@
 const newExpression = (input, updatedEntry, prevExpression) => {
   let updatedExpression = prevExpression ? prevExpression : "";
-  if (/[()]/.test(updatedEntry) && /[0-9]/.test(input)) newEntry = updatedEntry.slice(0,-1) + input + ")";
-  if (/[+/*-]/.test(input) && updatedEntry && !expression) {
+  if (/[+/*-]/.test(input) && updatedEntry && !prevExpression) {
     updatedExpression = `${updatedEntry} ${input}`;
-  } else if (/[+/*-]/.test(input) && updatedEntry && expression) {
-    updatedExpression = `${expression} ${updatedEntry} ${input}`;
-  } else if (/[+/*-]/.test(input) && !updatedEntry && expression) {
+  } else if (/[+/*-]/.test(input) && updatedEntry && prevExpression) {
+    updatedExpression = `${prevExpression} ${updatedEntry} ${input}`;
+  } else if (/[+/*-]/.test(input) && !updatedEntry && prevExpression) {
     updatedExpression = `${prevExpression.toString().slice(0,-1)}${input}`;
-  } else if (/[+/*-]/.test(input) && !updatedEntry && !expression && ans) {
-    updatedExpression = `${ans} ${input}`;
-  }
+  } 
+  // else if (/[+/*-]/.test(input) && !updatedEntry && !prevExpression && ans) {
+  //   updatedExpression = `${ans} ${input}`;
+  // }
+  return updatedExpression;
 }
 
 export default newExpression;

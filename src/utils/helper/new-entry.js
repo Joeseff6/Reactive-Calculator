@@ -14,6 +14,7 @@ const newEntry = (input, prevEntry) => {
   } else if (input === "neg" && prevEntry !== "0" && /-/.test(prevEntry)) {
     updatedEntry = prevEntry.replace(/[()-]/g,"");
   }
+  if (/[()]/.test(prevEntry) && /[0-9]/.test(input)) updatedEntry = prevEntry.slice(0,-1) + input + ")";
   return updatedEntry;
 }
 
