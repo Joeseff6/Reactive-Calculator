@@ -70,23 +70,18 @@ function App() {
 
   const onCalculate = () => {
     try {
-      let stringToBeCalculated = "";
       if (entry && !expression) {
         setAns(entry.replace(/[()]/g, ""));
         setEntry("");
         return;
-      } else if (entry) {
-        stringToBeCalculated = `${expression} ${entry}`;
-      } else {
-        stringToBeCalculated = expression.slice(0, -2);
       }
-
-      const finalExpression = calculate(stringToBeCalculated);
+      let stringToBeCalculated = entry && expression ? `${expression} ${entry}` : expression.slice(0, -2);
+      const result = calculate(stringToBeCalculated);
       setEntry("");
       setExpression("");
-      /\./.test(finalExpression)
-        ? setAns(finalExpression.toFixed(2))
-        : setAns(finalExpression.toString());
+      /\./.test(result)
+        ? setAns(result.toFixed(2))
+        : setAns(result.toString());
     } catch (err) {
       console.log(err);
       setExpression("Err");
