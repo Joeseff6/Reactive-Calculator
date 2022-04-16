@@ -47,13 +47,17 @@ function App() {
     if (e.target.localName === "button") input = e.target.innerText;
     if (e.target.localName === "input") {
       if (e.nativeEvent.inputType === "deleteContentBackward") {
-        setEntry(entry.slice(0, -1));
+        let updatedEntry = "";
+        updatedEntry = /[()-]/.test(entry) ? entry.slice(0,-2) + ")" : entry.slice(0,-2) + ")";
+        if (updatedEntry === "(-)") {
+          setEntry("");
+        } else {
+          setEntry(updatedEntry);
+        }
         return;
       }
       if (/[0-9+*/.-]/.test(e.nativeEvent.data)) {
         input = e.nativeEvent.data;
-      } else {
-        return;
       }
     }
     const [updatedEntry, updatedExpression] = updateValues(input, entry, expression, ans)
