@@ -10,8 +10,8 @@ const Screen = ({expression, ans }) => {
 
   return (
     <div className="mb-2" id="screen">
-      <span>Ans = {insertCommas(ans)}</span>
-      <span>{expression.split(" ").map(string => insertCommas(string)).join(" ")}</span>
+      <span>Ans = {(ans)}</span>
+      <span>{expression}</span>
     </div>
   );
 };
