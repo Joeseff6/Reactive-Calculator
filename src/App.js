@@ -53,6 +53,7 @@ function App() {
       }
     }
     const [updatedEntry, updatedExpression] = updateValues(input, entry, expression, ans)
+    if (!updatedEntry && !updatedExpression) return;
     setEntry(updatedEntry);
     setExpression(updatedExpression);
   };
