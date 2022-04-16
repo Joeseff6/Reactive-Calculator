@@ -1,5 +1,6 @@
 const newEntry = (input, prevEntry) => {
   let updatedEntry = "";
+  console.log(input)
   if (/[0-9]/.test(input)) updatedEntry = prevEntry + input;
   if (/[1-9]/.test(input) && prevEntry === "0") updatedEntry = input;
   if ((input === "." && prevEntry === "0")
