@@ -75,12 +75,14 @@ function App() {
   const onCalculate = () => {
     try {
       if (entry && !expression) {
-        setAns(entry.replace(/[()]/g, ""));
+        let formattedEntry = entry.replace(/[()]/g, "");
+        if (/\.(?![\d)])/.test(formattedEntry)) formattedEntry = formattedEntry.replace(".", "");
+        setAns(formattedEntry);
         setEntry("");
         return;
       }
-      let stringToBeCalculated = entry && expression ? `${expression} ${entry}` : expression.slice(0, -2);
-      const result = calculate(stringToBeCalculated);
+      let stringToCalculate = entry && expression ? `${expression} ${entry}` : expression.slice(0, -2);
+      const result = calculate(stringToCalculate);
       setEntry("");
       setExpression("");
       /\./.test(result)
