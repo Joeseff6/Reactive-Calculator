@@ -1,91 +1,111 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Screen from "./components/Screen";
 import calculate from "./utils/helper/calculate";
-import entryValidation from "./utils/helper/entry-validation";
+import updateValues from "./utils/helper/update-values";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./App.css";
 
-
 function App() {
-  const [ entry, setEntry ] = useState("");
-  const [ result, setResult ] = useState("");
-  const [ ans, setAns ] = useState(0);
+  const [entry, setEntry] = useState("");
+  const [expression, setExpression] = useState("");
+  const [ans, setAns] = useState("0");
+
+  useEffect(() => {
+    document.getElementById("entry").focus();
+  }, [entry, expression, ans]);
 
   const calculatorSize = {
     vertical: {
       width: "400px",
       height: "600px",
-    }
-  }
+    },
+  };
 
   const buttonArray = [
-    "7", "8", "9", "/",
-    "4", "5", "6", "*",
-    "1", "2", "3", "-",
-    "0", ".", "neg", "+"
+    "7",
+    "8",
+    "9",
+    "/",
+    "4",
+    "5",
+    "6",
+    "*",
+    "1",
+    "2",
+    "3",
+    "-",
+    "0",
+    ".",
+    "neg",
+    "+",
   ];
 
   const onEntryChange = (e) => {
-    let newEntry = "", newResult = "";
-    if (e.target.localName === "button") {
-      const button = e.target.innerText;
-      [newEntry, newResult] = entryValidation(button, entry, result, ans);
-    }
+    let input = "";
+    if (e.target.localName === "button") input = e.target.innerText;
     if (e.target.localName === "input") {
       if (e.nativeEvent.inputType === "deleteContentBackward") {
-        setEntry(entry.slice(0,-1));
+        let updatedEntry = "";
+        updatedEntry = /[()-]/.test(entry) ? entry.slice(0,-2) + ")" : entry.slice(0,-1);
+        if (updatedEntry === "(-)") {
+          setEntry("");
+        } else {
+          setEntry(updatedEntry);
+        }
         return;
       }
-      let key = "";
-      if (!/[^0-9+*/.-]/.test(e.nativeEvent.data)) {
-        key = e.nativeEvent.data;
-      } else {
-        return;
+      if (/[0-9+*/.-]/.test(e.nativeEvent.data)) {
+        input = e.nativeEvent.data;
       }
-      [newEntry, newResult] = entryValidation(key, entry, result, ans);
     }
-    if (!newEntry && !newResult) return;
-    setEntry(newEntry);
-    setResult(newResult);
-  }
+    const [updatedEntry, updatedExpression] = updateValues(input, entry, expression, ans)
+    if (!updatedEntry && !updatedExpression) return;
+    setEntry(updatedEntry);
+    setExpression(updatedExpression);
+  };
 
   const onClearAllClick = () => {
     setEntry("");
-    setResult("");
+    setExpression("");
     setAns("0");
-  }
+  };
 
   const onCalculate = () => {
     try {
-      let stringToBeCalculated = "";
-      if (entry && !result) {
-        setAns(entry);
+      if (entry && !expression) {
+        let formattedEntry = entry.replace(/[()]/g, "");
+        if (/\.(?![\d)])/.test(formattedEntry)) formattedEntry = formattedEntry.replace(".", "");
+        setAns(formattedEntry);
         setEntry("");
         return;
-      } else if(entry) {
-        stringToBeCalculated = `${result} ${entry}`;
-      } else {
-        stringToBeCalculated = result.slice(0,-2);
       }
-      const finalResult = calculate(stringToBeCalculated);
+      let stringToCalculate = entry && expression ? `${expression} ${entry}` : expression.slice(0, -2);
+      const result = calculate(stringToCalculate);
       setEntry("");
-      setResult("");
-      /\./.test(finalResult) ? setAns(finalResult.toFixed(2)) : setAns(finalResult.toString());
-    } catch(err) {
-      console.log(err)
-      setResult("Err");
+      setExpression("");
+      /\./.test(result)
+        ? setAns(result.toFixed(2))
+        : setAns(result.toString());
+    } catch (err) {
+      console.log(err);
+      setExpression("Err");
       setEntry("");
     }
-  }
+  };
 
   const onBackspaceClick = () => {
     if (/[()]/.test(entry)) {
-      setEntry(entry.slice(0,-2) + ")");
+      setEntry(entry.slice(0, -2) + ")");
     } else {
-      setEntry(entry.slice(0,-1));
+      setEntry(entry.slice(0, -1));
     }
-  }
+  };
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    onCalculate();
+  };
 
   return (
     <div className="container-fluid">
@@ -100,25 +120,70 @@ function App() {
               </div>
             </div>
             <div className="row justify-content-center mt-2">
-              <Screen onEntryChange={onEntryChange} onCalculate={onCalculate} entry={entry} result={result} ans={ans}/>
+              <Screen
+                onEntryChange={onEntryChange}
+                onCalculate={onCalculate}
+                entry={entry}
+                expression={expression}
+                ans={ans}
+              />
             </div>
+            <form type="submit" onSubmit={(e) => onFormSubmit(e)}>
+              <input
+                className="form-control m-auto"
+                type="text"
+                id="entry"
+                name="entry"
+                value={entry}
+                onChange={(e) => onEntryChange(e)}
+              />
+            </form>
             <div className="row justify-content-center">
-              <button className="btn backspace-button mt-3 mx-3" onClick={() => onBackspaceClick()}>
+              <button
+                className="btn backspace-button mt-3 mx-3"
+                onClick={() => onBackspaceClick()}
+              >
                 <FontAwesomeIcon icon={faDeleteLeft} />
               </button>
-              <button className="btn ans-button mt-3 mx-3" onClick={() => setEntry(ans)}>
+              <button
+                className="btn ans-button mt-3 mx-3"
+                onClick={() => setEntry(ans)}
+              >
                 Ans
               </button>
             </div>
             <div className="row justify-content-center mt-2">
-              {buttonArray.map(char => {
-                return  <button className="btn entry-button" key={char} onClick={(e) => onEntryChange(e)}>{char}</button>
+              {buttonArray.map((char) => {
+                return (
+                  <button
+                    className="btn entry-button"
+                    key={char}
+                    onClick={(e) => onEntryChange(e)}
+                  >
+                    {char}
+                  </button>
+                );
               })}
             </div>
             <div className="row justify-content-center">
-              <button className="btn enter-button" onClick={() => onCalculate()}>Calculate</button>
-              <button className="btn btn-warning clear-entry-button" onClick={() => setEntry("")}>Clear Entry</button>
-              <button className="btn btn-danger clear-all-button" onClick={onClearAllClick}>Clear All</button>
+              <button
+                className="btn enter-button"
+                onClick={() => onCalculate()}
+              >
+                Calculate
+              </button>
+              <button
+                className="btn btn-warning clear-entry-button"
+                onClick={() => setEntry("")}
+              >
+                Clear Entry
+              </button>
+              <button
+                className="btn btn-danger clear-all-button"
+                onClick={onClearAllClick}
+              >
+                Clear All
+              </button>
             </div>
           </div>
         </div>
