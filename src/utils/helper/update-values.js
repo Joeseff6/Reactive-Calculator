@@ -27,12 +27,13 @@ const newEntry = (input, prevEntry) => {
   } else if (input === "neg" && prevEntry !== "0" && /-/.test(prevEntry)) {
     updatedEntry = prevEntry.replace(/[()-]/g,"");
   }
-  if (/[()]/.test(prevEntry) && /[0-9]/.test(input)) updatedEntry = prevEntry.slice(0,-1) + input + ")";
+  if (/[()]/.test(prevEntry) && /[0-9.]/.test(input)) updatedEntry = prevEntry.slice(0,-1) + input + ")";
   return updatedEntry;
 }
 
 const newExpression = (input, entry, prevExpression, ans) => {
   let updatedExpression = prevExpression ? prevExpression : "";
+  if (/[+/*-]/.test(input) && /\.(?!\d)/.test(entry)) entry = entry.replace(".", "");
   if (/[+/*-]/.test(input) && entry && !prevExpression) {
     updatedExpression = `${entry} ${input}`;
   } else if (/[+/*-]/.test(input) && entry && prevExpression) {
