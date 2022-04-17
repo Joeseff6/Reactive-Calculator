@@ -4,7 +4,6 @@ import calculate from "./utils/helper/calculate";
 import updateValues from "./utils/helper/update-values";
 import { faDeleteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import insertCommas from "./utils/helper/insert-commas";
 import "./App.css";
 
 function App() {
