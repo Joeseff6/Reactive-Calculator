@@ -1,11 +1,12 @@
 const insertCommas = (string) => {
-  if (/[^\d\.]/.test(string)) return;
+  if (/[^\d.()-]/.test(string)) return;
   if (string.length <= 3) return string;
-  let integer = string;
+  let formattedString = string.replace(/[()-]/g, "");
+  let integer = formattedString;
   let decimal = "";
-  if (/\./.test(string)) {
-    integer = /\d+(?=\.)/.exec(string)[0];
-    decimal = /\.\d+/.test(string) ? /\.\d+/.exec(string)[0] : "";
+  if (/\./.test(formattedString)) {
+    integer = /\d+(?=\.)/.exec(formattedString)[0];
+    decimal = /\.\d*/.exec(formattedString)[0]
   }
   let reversedInteger = integer.split("").reverse().join("");
   let integerWithCommas = "";
@@ -20,7 +21,7 @@ const insertCommas = (string) => {
     }
   }
   let finalInteger = integerWithCommas.split("").reverse().join("");
-  return finalInteger + decimal;
+  return /[()-]/.test(string) ? `(-${finalInteger + decimal})` : finalInteger + decimal;
 }
 
 export default insertCommas;
