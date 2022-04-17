@@ -136,6 +136,7 @@ function App() {
                 type="text"
                 id="entry"
                 name="entry"
+                autoComplete="off"
                 value={insertCommas(entry)}
                 onChange={(e) => onEntryChange(e)}
               />
