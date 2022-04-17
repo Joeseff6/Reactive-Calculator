@@ -1,5 +1,4 @@
 const insertCommas = (string) => {
-  if (/[^\d.()-]/.test(string)) return;
   if (string.length <= 3) return string;
   let formattedString = string.replace(/[()-]/g, "");
   let integer = formattedString;
